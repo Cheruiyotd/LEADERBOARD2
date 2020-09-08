@@ -1,6 +1,6 @@
 package com.mcheru.leaderboard;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 public class LearningLeadersViewModel extends ViewModel {
     // TODO: Implement the ViewModel
