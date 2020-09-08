@@ -50,8 +50,4 @@ public class Genius {
         this.badgeUrl = badgeUrl;
     }
 
-    @Override
-    public String toString() {
-        return score + " skill IQ Score" + ", '" + country ;
-    }
 }

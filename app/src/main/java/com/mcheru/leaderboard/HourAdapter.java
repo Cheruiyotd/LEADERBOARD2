@@ -1,5 +1,6 @@
 package com.mcheru.leaderboard;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,17 +16,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class AdapterSkillIQ extends RecyclerView.Adapter<AdapterSkillIQ.ViewHolder> {
+public class HourAdapter  extends RecyclerView.Adapter<HourAdapter.ViewHolder> {
+
     LayoutInflater inflater;
-    List<Genius> mGeniuses;
+    List<Marathoner> marathoners;
 
-    public AdapterSkillIQ(Context ctx, List<Genius> mGeniuses){
+    public HourAdapter(Context ctx, List<Marathoner> marathoners){
         this.inflater = LayoutInflater.from(ctx);
-        this.mGeniuses = mGeniuses;
+        this.marathoners = marathoners;
     }
-
-
-
 
     @NonNull
     @Override
@@ -36,27 +35,27 @@ public class AdapterSkillIQ extends RecyclerView.Adapter<AdapterSkillIQ.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // bind the data
-        holder.learnerName.setText(mGeniuses.get(position).getName());
-        holder.learnerStats.setText(mGeniuses.get(position).getScore()+ " skill IQ Score, "+ mGeniuses.get(position).getCountry());
-        Picasso.get().load(mGeniuses.get(position).getBadgeUrl()).into(holder.badgeImage);
-
+        holder.learnerNameTV.setText(marathoners.get(position).getName());
+        holder.learnerStatsTV.setText(marathoners.get(position).getHours()+ " skill IQ Score, "+ marathoners.get(position).getCountry());
+        Picasso.get().load(marathoners.get(position).getBadgeUrl()).into(holder.badgeImage);
     }
 
     @Override
     public int getItemCount() {
-        return mGeniuses.size();
+        return 0;
     }
 
-    public  class ViewHolder extends  RecyclerView.ViewHolder{
-        TextView learnerName, learnerStats;
+    public class ViewHolder<learnerNameTV> extends RecyclerView.ViewHolder {
+
+
+        TextView learnerNameTV, learnerStatsTV;
         ImageView badgeImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            learnerName = itemView.findViewById(R.id.learner_name);
-            learnerStats = itemView.findViewById(R.id.learner_stats);
+            learnerNameTV = itemView.findViewById(R.id.learner_name2);
+            learnerStatsTV = itemView.findViewById(R.id.learner_stats2);
             badgeImage = itemView.findViewById(R.id.imageView);
 
             // handle onClick
@@ -69,4 +68,7 @@ public class AdapterSkillIQ extends RecyclerView.Adapter<AdapterSkillIQ.ViewHold
             });
         }
     }
+
 }
+
+

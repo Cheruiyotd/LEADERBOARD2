@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LearningLeaders">
+    tools:context=".LearningLeaders2">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hour_recyclerview"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/recycler_views2" />
+        android:text="@string/hello_blank_fragment" />
+
 </FrameLayout>
