@@ -1,5 +1,7 @@
 package com.mcheru.leaderboard;
 
+import android.util.Log;
+
 public class Genius {
     String name;
     Integer score;
@@ -50,4 +52,8 @@ public class Genius {
         this.badgeUrl = badgeUrl;
     }
 
+    @Override
+    public String toString() {
+        return score + " skill IQ Score" + ", '" + country ;
+    }
 }

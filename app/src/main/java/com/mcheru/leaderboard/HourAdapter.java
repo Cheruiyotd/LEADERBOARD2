@@ -17,6 +17,9 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class HourAdapter  extends RecyclerView.Adapter<HourAdapter.ViewHolder> {
+    /**
+     * UNIDENTIFIED BUG!!!
+     */
 
     LayoutInflater inflater;
     List<Marathoner> marathoners;
@@ -36,7 +39,7 @@ public class HourAdapter  extends RecyclerView.Adapter<HourAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.learnerNameTV.setText(marathoners.get(position).getName());
-        String statsTxt = marathoners.get(position).getHours()+ " skill IQ Score, "+ marathoners.get(position).getCountry();
+        String statsTxt = marathoners.get(position).getHours()+ " learning hours, "+ marathoners.get(position).getCountry();
         holder.learnerStatsTV.setText(statsTxt);
         Picasso.get().load(marathoners.get(position).getBadgeUrl()).into(holder.badgeImage);
     }

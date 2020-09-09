@@ -6,16 +6,13 @@ public class Marathoner {
     String country;
     String badgeUrl;
 
+    public Marathoner() { }
 
     public Marathoner(String name, Integer hours, String country, String badgeUrl) {
         this.name = name;
         this.hours = hours;
         this.country = country;
         this.badgeUrl = badgeUrl;
-    }
-
-    public Marathoner() {
-
     }
 
     public String getName() {
@@ -26,11 +23,11 @@ public class Marathoner {
         this.name = name;
     }
 
-    public int getHours() {
+    public Integer getHours() {
         return hours;
     }
 
-    public void setHours(int hours) {
+    public void setHours(Integer hours) {
         this.hours = hours;
     }
 
@@ -48,10 +45,5 @@ public class Marathoner {
 
     public void setBadgeUrl(String badgeUrl) {
         this.badgeUrl = badgeUrl;
-    }
-
-    @Override
-    public String toString() {
-        return hours + " learning hours" + ", "+ country ;
     }
 }
