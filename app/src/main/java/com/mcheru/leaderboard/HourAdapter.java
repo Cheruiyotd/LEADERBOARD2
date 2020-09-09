@@ -29,14 +29,15 @@ public class HourAdapter  extends RecyclerView.Adapter<HourAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.recycler_views,parent,false);
+        View view = inflater.inflate(R.layout.recycler_views2,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.learnerNameTV.setText(marathoners.get(position).getName());
-        holder.learnerStatsTV.setText(marathoners.get(position).getHours()+ " skill IQ Score, "+ marathoners.get(position).getCountry());
+        String statsTxt = marathoners.get(position).getHours()+ " skill IQ Score, "+ marathoners.get(position).getCountry();
+        holder.learnerStatsTV.setText(statsTxt);
         Picasso.get().load(marathoners.get(position).getBadgeUrl()).into(holder.badgeImage);
     }
 
@@ -56,16 +57,11 @@ public class HourAdapter  extends RecyclerView.Adapter<HourAdapter.ViewHolder> {
 
             learnerNameTV = itemView.findViewById(R.id.learner_name2);
             learnerStatsTV = itemView.findViewById(R.id.learner_stats2);
-            badgeImage = itemView.findViewById(R.id.imageView);
+            badgeImage = itemView.findViewById(R.id.imageView2);
 
             // handle onClick
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Do Something With this Click", Toast.LENGTH_SHORT).show();
-                }
-            });
+            itemView.setOnClickListener(v -> Toast.makeText(v.getContext(), "Do Something With this Click", Toast.LENGTH_SHORT).show());
         }
     }
 

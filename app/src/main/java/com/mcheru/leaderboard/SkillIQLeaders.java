@@ -67,8 +67,6 @@ public class SkillIQLeaders extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_skill_i_q_leaders, container, false);
-        recyclerView = view.findViewById(R.id.hour_recyclerview);
-
         mcontext = container.getContext();
         recyclerView = view.findViewById(R.id.skill_recycler);
         geniuses = new ArrayList<>();
@@ -80,35 +78,27 @@ public class SkillIQLeaders extends Fragment {
 
     private void extractSongs() {
         RequestQueue queue = Volley.newRequestQueue(mcontext);
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, JSON_URL, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        JSONObject songObject = response.getJSONObject(i);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, JSON_URL, null, response -> {
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    JSONObject songObject = response.getJSONObject(i);
 
-                        Genius skillObject = new Genius();
-                        skillObject.setName(songObject.getString("name"));
-                        skillObject.setScore(songObject.getInt("score"));
-                        skillObject.setCountry(songObject.getString("country"));
-                        skillObject.setBadgeUrl(songObject.getString("badgeUrl"));
-                        geniuses.add(skillObject);
+                    Genius skillObject = new Genius();
+                    skillObject.setName(songObject.getString("name"));
+                    skillObject.setScore(songObject.getInt("score"));
+                    skillObject.setCountry(songObject.getString("country"));
+                    skillObject.setBadgeUrl(songObject.getString("badgeUrl"));
+                    geniuses.add(skillObject);
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+            }
 
-                recyclerView.setLayoutManager(new LinearLayoutManager(mcontext));
-                adapter = new SkillAdapter(mcontext, geniuses);
-                recyclerView.setAdapter(adapter);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("tag", "onErrorResponse: " + error.getMessage());
-            }
-        });
+            recyclerView.setLayoutManager(new LinearLayoutManager(mcontext));
+            adapter = new SkillAdapter(mcontext, geniuses);
+            recyclerView.setAdapter(adapter);
+        }, error -> Log.d("tag", "onErrorResponse: " + error.getMessage()));
 
         queue.add(jsonArrayRequest);
 

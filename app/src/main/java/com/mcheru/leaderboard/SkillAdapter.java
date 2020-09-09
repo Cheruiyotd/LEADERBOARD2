@@ -28,7 +28,7 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.recycler_views2,parent,false);
+        View view = inflater.inflate(R.layout.recycler_views,parent,false);
         return new ViewHolder(view);
     }
 
@@ -53,9 +53,9 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.ViewHolder> 
         public ViewHolder( View itemView) {
             super(itemView);
 
-            learnerNameTV = itemView.findViewById(R.id.learner_name2);
-            learnerStatsTV = itemView.findViewById(R.id.learner_stats2);
-            badgeImage = itemView.findViewById(R.id.imageView2);
+            learnerNameTV = itemView.findViewById(R.id.learner_name);
+            learnerStatsTV = itemView.findViewById(R.id.learner_stats);
+            badgeImage = itemView.findViewById(R.id.imageView);
 
             // handle onClick
 

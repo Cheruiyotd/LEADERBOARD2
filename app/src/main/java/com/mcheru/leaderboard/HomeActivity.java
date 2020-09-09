@@ -1,6 +1,7 @@
 package com.mcheru.leaderboard;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -14,6 +15,8 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabItem mSkillIQTab, mLearningTab;
     private PageAdapter mPageAdapter;
+    private TabItem mLearningTab2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         mTabLayout = findViewById(R.id.tab_layout);
         mSkillIQTab = findViewById(R.id.skill_iq_tab);
         mLearningTab = findViewById(R.id.learning_tab);
+        mLearningTab2 = findViewById(R.id.learning_tab2);
         mViewPager = findViewById(R.id.view_pager);
         mPageAdapter = new PageAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
         mViewPager.setAdapter(mPageAdapter);

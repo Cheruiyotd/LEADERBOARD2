@@ -46,52 +46,44 @@ public class LearningLeaders extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.learning_leaders_fragment, container, false);
 
+        if (container != null) {
+            mcontext = container.getContext();
+        }
         recyclerView = view.findViewById(R.id.hour_recyclerview);
-
-        mcontext = container.getContext();
-        recyclerView = view.findViewById(R.id.skill_recycler);
         marathoners = new ArrayList<>();
-        //extractSongs();
+        extractSongs();
 
         return view;
     }
 
 
-//    private void extractSongs() {
-//        RequestQueue queue = Volley.newRequestQueue(mcontext);
-//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, JSON_URL, null, new Response.Listener<JSONArray>() {
-//            @Override
-//            public void onResponse(JSONArray response) {
-//                for (int i = 0; i < response.length(); i++) {
-//                    try {
-//                        JSONObject songObject = response.getJSONObject(i);
-//
-//                        Marathoner skillObject = new Marathoner();
-//                        skillObject.setName(songObject.getString("name"));
-//                        skillObject.setHours(songObject.getInt("hours"));
-//                        skillObject.setCountry(songObject.getString("country"));
-//                        skillObject.setBadgeUrl(songObject.getString("badgeUrl"));
-//                        marathoners.add(skillObject);
-//
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//
-//                recyclerView.setLayoutManager(new LinearLayoutManager(mcontext));
-//                adapter = new HourAdapter(mcontext, marathoners);
-//                recyclerView.setAdapter(adapter);
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.d("tag", "onErrorResponse: " + error.getMessage());
-//            }
-//        });
-//
-//        queue.add(jsonArrayRequest);
-//
-//    }
+    private void extractSongs() {
+        RequestQueue queue = Volley.newRequestQueue(mcontext);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, JSON_URL, null, response -> {
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    JSONObject songObject = response.getJSONObject(i);
+
+                    Marathoner skillObject = new Marathoner();
+                    skillObject.setName(songObject.getString("name"));
+                    skillObject.setHours(songObject.getInt("hours"));
+                    skillObject.setCountry(songObject.getString("country"));
+                    skillObject.setBadgeUrl(songObject.getString("badgeUrl"));
+                    marathoners.add(skillObject);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(mcontext));
+            adapter = new HourAdapter(mcontext, marathoners);
+            recyclerView.setAdapter(adapter);
+        }, error -> Log.d("tag", "onErrorResponse: " + error.getMessage()));
+
+        queue.add(jsonArrayRequest);
+
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
