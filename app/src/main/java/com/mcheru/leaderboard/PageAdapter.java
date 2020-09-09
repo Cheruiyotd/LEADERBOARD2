@@ -21,8 +21,6 @@ public class PageAdapter extends FragmentPagerAdapter {
                 return new LearningLeaders();
             case 1:
                 return new SkillIQLeaders();
-            case 2:
-                return new LearningLeaders2();
             default:
                 return null;
 
