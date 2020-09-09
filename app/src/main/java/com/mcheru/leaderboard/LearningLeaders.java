@@ -29,14 +29,10 @@ public class LearningLeaders extends Fragment {
     //public  Context context = null;
     private LearningLeadersViewModel mViewModel;
     private static String JSON_URL = "https://gadsapi.herokuapp.com/api/hours";
-    //private ArrayList<Marathoner> marathoners;
-   // private static String JSON_URL = ApiUtil.getFullUrlAsString("/api/hours");
-    //private HourAdapter adapter;
     private Context mcontext;
     private String mParam1;
     private String mParam2;
     List<Marathoner> marathoners = null;
-    //private static String JSON_URL = "https://gadsapi.herokuapp.com/api/skilliq";
     RecyclerView recyclerView = null;
     private SkillAdapter2 adapter;
 
