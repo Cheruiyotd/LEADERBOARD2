@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/linearLayout"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lauunch1"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+    <LinearLayout
+        android:id="@+id/lineaarlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="LEADERBOARD"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
+    </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -15,19 +42,20 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior">
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/lineaarlay"
+        app:tabTextColor="?android:attr/colorBackground">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/learning_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Learning Leaders" />
+            android:text="@string/tab_text_1" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/skill_iq_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Skill IQ Leaders" />
+            android:text="@string/tab_text_2" />
 
     </com.google.android.material.tabs.TabLayout>
 
@@ -41,6 +69,13 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior">
         app:layout_constraintTop_toBottomOf="@+id/tab_layout">
 
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            tools:visibility="visible" />
     </androidx.viewpager.widget.ViewPager>
 
 
