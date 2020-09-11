@@ -21,9 +21,9 @@
     <string name="badge_image">badge image</string>
     <string name="yes11">Yes</string>
     <string name="are_you_sure">Are you sure</string>
-    <string name="po_box">po box</string>
-    <string name="email">email</string>
-    <string name="link">link</string>
+    <string name="po_box">Last Name</string>
+    <string name="email">Email Address</string>
+    <string name="link">Project on GITHUB(link)</string>
     <string name="submit">Submit</string>
     <string name="submission_successful">Submission Successful</string>
     <string name="submt">Submit</string>

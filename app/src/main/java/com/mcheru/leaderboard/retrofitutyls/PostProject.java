@@ -6,11 +6,12 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface PostProject {
-    @POST("1FAIpQLSfGD7-klepoq3PN0IgVMYeqSZu-23MGWP2kPWdlNdhrfq_anw/formResponse")
+    @POST("1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse")
     @FormUrlEncoded
     Call<Project> projectEntry(
-            @Field("entry.2005620554") String name,
-            @Field("entry.1045781291") String mail,
-            @Field("entry.1065046570") String address,
-            @Field("entry.1166974658") String link);
+            @Field("entry.1824927963") String mail,
+            @Field("entry.1877115667") String fName,
+            @Field("entry.2006916086") String lName,
+            @Field("entry.284483984") String link);
 }
+
